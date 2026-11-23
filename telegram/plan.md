@@ -1,6 +1,7 @@
 # ZATORI NATION – Telegram-Autopilot: Plan und Regeln
 
-Quelle für die tägliche Aufgabe, die um ca. 07:25 Uhr (Europe/Berlin) in die Telegram-Gruppen postet.
+Quelle für die tägliche Aufgabe, die um ca. 07:27 Uhr (Europe/Berlin) die Posts schreibt.
+Ablauf: Die Aufgabe legt jeden Post als Datei in `telegram/outbox/` ab und pusht. GitHub Actions (`.github/workflows/telegram.yml`) sendet sie mit dem Repository-Secret `TELEGRAM_BOT_TOKEN` und verschiebt sie nach `telegram/sent/` (oder `telegram/failed/` mit Fehlergrund).
 Freigegeben von David am 23.11.2026.
 
 ## Gruppen

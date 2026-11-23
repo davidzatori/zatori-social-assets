@@ -14,6 +14,18 @@ Befehle:
   python3 telegram/tg.py send GRUPPE THEMA DATEI --kind ART --title "Kurztitel" [--dry-run]
       Sendet den Text aus DATEI in das Thema und protokolliert in log.json.
       Sperre: dieselbe GRUPPE + ART am selben Tag wird nicht ein zweites Mal gesendet.
+  python3 telegram/tg.py flush
+      Sendet alle Dateien aus telegram/outbox/ (läuft in GitHub Actions, wo der Token als Secret liegt).
+      Fehlen IDs, wird vorher automatisch discover ausgeführt. Gesendete Dateien wandern nach
+      telegram/sent/, fehlgeschlagene nach telegram/failed/ (mit Fehlergrund), damit nichts doppelt rausgeht.
+
+Format einer Outbox-Datei (telegram/outbox/<datum>-<gruppe>-<art>.txt):
+  group: main
+  topic: challenges
+  kind: main
+  title: Challenge der Woche
+  ---
+  <Text des Posts>
 """
 import json, os, sys, datetime, urllib.request, urllib.parse, urllib.error
 from zoneinfo import ZoneInfo
@@ -128,23 +140,36 @@ def cmd_send(args):
         sys.exit(__doc__)
     group, topic, path = args
     text = open(path, encoding="utf-8").read().strip()
+    try:
+        send_text(group, topic, kind, title, text, dry)
+    except SendError as e:
+        sys.exit(f"FEHLER: {e}")
+
+
+class SendError(Exception):
+    pass
+
+
+def send_text(group, topic, kind, title, text, dry=False):
     if not text:
-        sys.exit("FEHLER: Text ist leer.")
+        raise SendError("Text ist leer.")
     if len(text) > 4000:
-        sys.exit(f"FEHLER: Text hat {len(text)} Zeichen, Telegram erlaubt 4096. Kürzen.")
+        raise SendError(f"Text hat {len(text)} Zeichen, Telegram erlaubt 4096. Kürzen.")
     cfg = load(CONFIG, {})
+    if group not in cfg["groups"] or topic not in cfg["groups"][group]["topics"]:
+        raise SendError(f"Unbekannte Gruppe/Thema {group}/{topic}.")
     gc = cfg["groups"][group]
     tc = gc["topics"][topic]
     if (not gc["chat_id"] or not tc["thread_id"]) and not dry:
-        sys.exit(f"FEHLER: IDs für {group}/{topic} fehlen. Erst 'discover' ausführen.")
+        raise SendError(f"IDs für {group}/{topic} fehlen. In diesem Thema einmal etwas schreiben, dann discover.")
     log = load(LOG, [])
     d = today()
     if any(e["date"] == d and e["group"] == group and e["kind"] == kind for e in log):
         print(f"SPERRE: {group} [{kind}] wurde heute schon gesendet. Nichts gesendet.")
-        return
+        return "sperre"
     if dry:
         print(f"PROBELAUF: würde {len(text)} Zeichen an {group}/{topic} senden.\n---\n{text}\n---")
-        return
+        return "probelauf"
     res = api("sendMessage", {
         "chat_id": gc["chat_id"],
         "message_thread_id": tc["thread_id"],
@@ -159,11 +184,57 @@ def cmd_send(args):
     })
     save(LOG, log)
     print(f"GESENDET: {group}/{topic} [{kind}] message_id={res.get('message_id')}")
+    return "gesendet"
+
+
+def parse_outbox(path):
+    raw = open(path, encoding="utf-8").read()
+    head, sep, body = raw.partition("\n---\n")
+    if not sep:
+        raise SendError("Trennlinie --- fehlt.")
+    meta = {}
+    for line in head.splitlines():
+        if ":" in line:
+            k, v = line.split(":", 1)
+            meta[k.strip()] = v.strip()
+    for k in ("group", "topic", "kind", "title"):
+        if not meta.get(k):
+            raise SendError(f"Kopfzeile '{k}' fehlt.")
+    return meta, body.strip()
+
+
+def cmd_flush():
+    import shutil
+    outbox = os.path.join(HERE, "outbox")
+    files = sorted(f for f in os.listdir(outbox) if f.endswith(".txt")) if os.path.isdir(outbox) else []
+    if not files:
+        print("Outbox leer.")
+        return
+    cfg = load(CONFIG, {})
+    if any(not gc["chat_id"] or any(t["thread_id"] is None for t in gc["topics"].values()) for gc in cfg["groups"].values()):
+        print("IDs unvollständig – führe discover aus.")
+        cmd_discover()
+    for d in ("sent", "failed"):
+        os.makedirs(os.path.join(HERE, d), exist_ok=True)
+    for f in files:
+        p = os.path.join(outbox, f)
+        try:
+            meta, text = parse_outbox(p)
+            st = send_text(meta["group"], meta["topic"], meta["kind"], meta["title"], text)
+            shutil.move(p, os.path.join(HERE, "sent", f))
+            print(f"{f}: {st}")
+        except (SendError, SystemExit) as e:
+            msg = str(e)
+            with open(p, "a", encoding="utf-8") as fh:
+                fh.write(f"\n\n# FEHLER ({datetime.datetime.now(TZ):%Y-%m-%d %H:%M}): {msg}\n")
+            shutil.move(p, os.path.join(HERE, "failed", f))
+            print(f"{f}: FEHLER {msg}")
 
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
         sys.exit(__doc__)
     c, rest = sys.argv[1], sys.argv[2:]
-    {"check": lambda: cmd_check(), "discover": lambda: cmd_discover(), "send": lambda: cmd_send(rest)}.get(
+    {"check": lambda: cmd_check(), "discover": lambda: cmd_discover(), "flush": lambda: cmd_flush(),
+     "send": lambda: cmd_send(rest)}.get(
         c, lambda: sys.exit(__doc__))()
