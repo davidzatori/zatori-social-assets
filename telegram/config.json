@@ -1,0 +1,33 @@
+{
+  "groups": {
+    "main": {
+      "title_contains": "ZATORI NATION",
+      "exclude_title_contains": "Partner",
+      "chat_id": null,
+      "topics": {
+        "start": {"name_contains": "Start hier", "thread_id": null},
+        "vorstellung": {"name_contains": "Vorstellung", "thread_id": null},
+        "wins": {"name_contains": "Wins", "thread_id": null},
+        "praxis": {"name_contains": "KI-Praxis", "thread_id": null},
+        "challenges": {"name_contains": "Challenges", "thread_id": null},
+        "makler": {"name_contains": "Makler", "thread_id": null},
+        "finanzberater": {"name_contains": "Finanzberater", "thread_id": null},
+        "buero": {"name_contains": "Büro", "thread_id": null},
+        "news": {"name_contains": "News", "thread_id": null}
+      }
+    },
+    "partner": {
+      "title_contains": "Partner",
+      "exclude_title_contains": null,
+      "chat_id": null,
+      "topics": {
+        "start": {"name_contains": "Start hier", "thread_id": null},
+        "inhaltspaket": {"name_contains": "Inhaltspaket", "thread_id": null},
+        "verkauf": {"name_contains": "Verkauf", "thread_id": null},
+        "abschluesse": {"name_contains": "Abschlüsse", "thread_id": null},
+        "fragen": {"name_contains": "Fragen", "thread_id": null},
+        "call": {"name_contains": "Partner-Call", "thread_id": null}
+      }
+    }
+  }
+}

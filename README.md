@@ -8,4 +8,6 @@
 - `tools/make_carousel.py` – erzeugt Slides aus einer JSON-Spezifikation
 - `tools/publish_carousel.py` – veröffentlicht einen Slide-Ordner als Karussell
 
+- `telegram/` – Telegram-Autopilot für die ZATORI NATION: `plan.md` (Wochenplan und Regeln), `tg.py` (senden, IDs erkennen), `config.json` (Gruppen- und Themen-IDs), `log.json` (Protokoll). Der Bot-Token kommt nur aus der Umgebungsvariable `TELEGRAM_BOT_TOKEN`.
+
 Bilder in diesem Repo sind öffentlich, weil sie ohnehin auf Instagram erscheinen. Hier liegen keine Zugangsdaten.
