@@ -1,0 +1,19 @@
+group: main
+topic: challenges
+kind: main
+title: Challenge: Deine nervigste Mail als KI-Vorlage
+---
+Neue Woche, neue Challenge 🚀
+
+Diesmal geht's um die eine Mail, die du ständig schreibst und die dich jedes Mal nervt. Die Terminbestätigung. Die Nachfrage nach fehlenden Unterlagen. Die freundliche Erinnerung an eine Rückmeldung.
+
+Deine Aufgabe: Bau dir mit KI eine Vorlage dafür, die du ab sofort immer wieder nutzen kannst.
+
+So gehst du vor:
+Erzähl der KI kurz, wer du bist und wem du die Mail schickst. Sag ihr, welchen Ton du willst. Und dann lass sie drei Varianten schreiben, eine kurze, eine herzliche und eine ganz sachliche.
+
+Ein Beispiel: „Ich bin Versicherungsmakler und muss Kunden oft an fehlende Unterlagen erinnern. Schreib mir drei Varianten dieser Mail, freundlich und ohne Druck.“
+
+Danach suchst du dir die beste raus und passt sie so an, dass sie nach dir klingt. Das Ganze dauert keine 20 Minuten und spart dir ab jetzt jede Woche Zeit.
+
+Poste dein Ergebnis bis Sonntag hier im Thema. Gern mit dem Prompt, den du benutzt hast, dann lernen alle was davon ✍️
