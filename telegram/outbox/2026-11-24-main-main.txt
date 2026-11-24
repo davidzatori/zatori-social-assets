@@ -1,0 +1,21 @@
+group: main
+topic: praxis
+kind: main
+title: Prompt des Tages: Gesprächsnotizen in To-dos verwandeln
+---
+Prompt des Tages 💡
+
+Kennst du das? Du kommst aus einem Termin, hast ein paar wilde Stichpunkte auf dem Zettel und weißt am nächsten Tag nicht mehr, was eigentlich ausgemacht war.
+
+Mit diesem Prompt machst du daraus in einer Minute eine saubere Übersicht:
+
+```
+Hier sind meine Notizen aus einem Gespräch mit [Kunde/Kollege]. Fasse sie in 3–5 Sätzen zusammen. Liste danach alle Aufgaben auf, jeweils mit wer, was und bis wann. Markiere offene Fragen extra. Wenn etwas unklar ist, frag nach, statt zu raten.
+
+Notizen:
+[hier deine Stichpunkte einfügen]
+```
+
+Gut ist der für Kundentermine, Telefonate und Team-Besprechungen. Also alles, wo hinterher was zu tun ist.
+
+Anpassen kannst du ihn ganz leicht: Schreib einfach dazu, in welcher Form du's brauchst, zum Beispiel „als kurze Mail an den Kunden“. Und lass sensible Daten wie volle Namen oder Vertragsnummern lieber weg ✍️
