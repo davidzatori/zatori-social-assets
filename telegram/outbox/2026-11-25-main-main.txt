@@ -1,0 +1,22 @@
+group: main
+topic: makler
+kind: main
+title: Praxisbeispiel Makler: Anfragen am Abend nicht mehr liegen lassen
+---
+Praxisbeispiel für Makler 🏡
+
+Du kennst das bestimmt. Es ist Abend, du bist noch beim Kunden oder schon zu Hause, und in der Zwischenzeit kommen drei neue Anfragen rein. Bis du am nächsten Morgen antwortest, hat sich der eine oder andere schon woanders gemeldet. Oft gewinnt einfach, wer zuerst reagiert.
+
+So kann dir KI dabei helfen:
+
+1. Schreib dir einmal auf, welche Fragen bei Anfragen immer wieder kommen. Was braucht ihr, wie läuft ein Termin ab, welche Unterlagen sind wichtig.
+
+2. Lass dir von der KI daraus eine freundliche Erstantwort bauen, die nach dir klingt. Mit Dank, den nächsten Schritten und einem Terminvorschlag.
+
+3. Kopier jede neue Anfrage kurz in die KI und lass dir die Antwort passend dazu anpassen. Du liest drüber, änderst was nötig ist und schickst ab. Spart richtig Zeit.
+
+4. Lass dir am Ende der Woche alle Anfragen zusammenfassen. Dann siehst du, was die Leute wirklich wissen wollen, und kannst deine Vorlage weiter verbessern.
+
+Wichtig: Persönliche Daten wie volle Namen oder Vertragsnummern lässt du beim Reinkopieren lieber weg.
+
+Wie schnell schaffst du es aktuell, auf neue Anfragen zu antworten? 💬
