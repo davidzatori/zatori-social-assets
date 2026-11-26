@@ -1,0 +1,18 @@
+group: main
+topic: praxis
+kind: main
+title: Tool-Tipp: Reden statt tippen
+---
+Tool-Tipp der Woche 🎙️
+
+Viele tippen ihre Anfragen an die KI immer noch Wort für Wort ein. Dabei geht's viel entspannter: Einfach reden.
+
+Fast jede KI-App und auch dein Handy haben eine Diktierfunktion. Du drückst aufs Mikro und erzählst einfach drauflos. Gern auch durcheinander, mit „äh“ und Gedankensprüngen. Die KI sortiert das hinterher für dich.
+
+Das ist super nach einem Kundentermin im Auto, beim Spaziergang oder wenn dir abends noch eine Idee kommt. Du sprichst zwei Minuten rein und sagst am Ende: „Mach daraus eine kurze Mail“ oder „Mach mir eine To-do-Liste draus.“
+
+Der Vorteil: Beim Reden erzählst du automatisch mehr Hintergrund als beim Tippen. Und genau das macht die Ergebnisse der KI viel besser.
+
+Kleiner Hinweis noch: Vertrauliche Kundendaten sprichst du lieber nicht rein, Vornamen oder Platzhalter reichen völlig.
+
+Jetzt seid ihr dran: Nutzt ihr schon Sprache statt Tastatur, wenn ihr mit KI arbeitet? Und wenn ja, in welcher Situation hilft euch das am meisten? 💬
