@@ -1,0 +1,16 @@
+group: main
+topic: wins
+kind: main
+title: Wins-Runde: Was hat diese Woche geklappt?
+---
+Freitag, Zeit für die Wins-Runde 🎉
+
+Die Woche ist fast rum und jetzt wollen wir wissen, was bei dir gut gelaufen ist. Egal ob groß oder klein.
+
+Und mit klein meinen wir wirklich klein. Zum Beispiel: „Ich hab zum ersten Mal eine Kundenmail von der KI vorschreiben lassen und musste nur noch zwei Sätze anpassen.“ Das ist ein Win. Punkt.
+
+Vielleicht hast du auch die Challenge vom Montag ausprobiert, einen Prompt aus der Gruppe getestet oder einfach eine Aufgabe schneller erledigt als sonst. Erzähl's uns!
+
+Schreib einfach in ein, zwei Sätzen drunter, was dein Win der Woche war. Gern auch, was du dabei gelernt hast.
+
+Hier wird jeder Schritt gefeiert, nicht nur die großen Sprünge. Denn genau aus den kleinen Schritten wird am Ende was Großes 💪
